@@ -426,10 +426,13 @@ h3 {
 
 .split-intro p,
 .partner-copy p,
-.process-intro,
 .dark-copy,
 .contact-list,
 .form-note {
+  color: var(--gray-3);
+}
+
+.process-intro p {
   color: var(--gray-3);
 }
 
@@ -640,7 +643,6 @@ h3 {
 .partner-showcase-logo {
   width: 64px;
   flex: 0 0 auto;
-  filter: brightness(0) invert(1);
 }
 
 .partner-showcase-brand {
