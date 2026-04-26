@@ -27,14 +27,14 @@ if (quoteForm) {
     const business = formData.get('business')?.toString().trim() || '';
     const details = formData.get('details')?.toString().trim() || '';
 
-    const subject = encodeURIComponent(`Homepage redesign inquiry from ${business || name || 'website visitor'}`);
+    const subject = encodeURIComponent(`Juggernaut growth plan inquiry from ${business || name || 'website visitor'}`);
     const body = encodeURIComponent(
       [
         `Name: ${name}`,
         `Email: ${email}`,
         `Business: ${business}`,
         '',
-        'Focus:',
+        'What they want to improve:',
         details,
       ].join('\n')
     );
