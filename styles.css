@@ -265,7 +265,7 @@ h3 {
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
-  gap: 2rem;
+  gap: 2.5rem;
   min-height: calc(100svh - var(--header-height));
   align-items: center;
   padding: 48px 0 82px;
@@ -413,25 +413,28 @@ h3 {
 
 .section-intro {
   max-width: 54rem;
-  margin-bottom: 2.1rem;
+  margin-bottom: 2.4rem;
 }
 
 .split-intro {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: 2rem;
-  align-items: end;
+  gap: 2.25rem;
+  align-items: start;
   max-width: none;
 }
 
 .split-intro p,
-.services-intro,
 .partner-copy p,
 .process-intro,
 .dark-copy,
 .contact-list,
 .form-note {
   color: var(--gray-3);
+}
+
+.services-intro h2 {
+  color: var(--ink);
 }
 
 .buyer-grid {
@@ -490,7 +493,7 @@ h3 {
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 1.2rem;
   align-items: center;
-  padding: 1.2rem 1.25rem;
+  padding: 1.3rem 1.35rem;
   border-radius: 22px;
   background: var(--white);
   border: 1px solid rgba(10, 10, 10, 0.08);
@@ -567,16 +570,19 @@ h3 {
 .logo-wall {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 0.9rem;
   align-items: stretch;
 }
 
 .logo-wall img {
   width: 100%;
-  padding: 1rem;
+  height: 100%;
+  max-height: 86px;
+  padding: 0.85rem;
   border-radius: 20px;
   background: var(--white);
   border: 1px solid rgba(10, 10, 10, 0.08);
+  object-fit: contain;
 }
 
 .partner-section {
@@ -605,22 +611,63 @@ h3 {
 }
 
 .partner-media {
+  display: grid;
+  align-items: center;
   overflow: hidden;
+  padding: 1.2rem;
   border-radius: 26px;
   background: var(--white);
   border: 1px solid rgba(10, 10, 10, 0.08);
 }
 
-.partner-banner {
-  width: 100%;
-  aspect-ratio: 16 / 4.3;
-  object-fit: cover;
+.partner-showcase {
+  gap: 1.25rem;
+  align-content: center;
+  min-height: 100%;
+  background:
+    linear-gradient(135deg, rgba(10, 10, 10, 1) 0%, rgba(24, 24, 24, 1) 68%, rgba(166, 31, 34, 0.84) 100%);
+  color: var(--white);
 }
 
-.partner-tile {
-  width: 100%;
-  padding: 1.35rem;
-  background: linear-gradient(180deg, #fff 0%, #f4f4f1 100%);
+.partner-showcase-top {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.partner-showcase-logo {
+  width: 64px;
+  flex: 0 0 auto;
+  filter: brightness(0) invert(1);
+}
+
+.partner-showcase-brand {
+  width: min(100%, 290px);
+}
+
+.partner-showcase p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.partner-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.partner-points span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .process-grid {
@@ -766,6 +813,14 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .hero-grid,
+  .approach-grid,
+  .partner-grid,
+  .cta-grid,
+  .footer-wrap {
+    gap: 1.75rem;
+  }
+
   .buyer-grid,
   .proof-grid,
   .process-grid {
@@ -787,8 +842,16 @@ h3 {
 }
 
 @media (max-width: 720px) {
+  .container {
+    width: min(calc(100% - 2.5rem), var(--max));
+  }
+
   .section {
-    padding: 76px 0;
+    padding: 68px 0;
+  }
+
+  .section-intro {
+    margin-bottom: 1.8rem;
   }
 
   .nav-wrap {
@@ -810,15 +873,35 @@ h3 {
 
   .hero-grid {
     min-height: auto;
-    padding: 38px 0 56px;
+    gap: 1.5rem;
+    padding: 24px 0 44px;
+  }
+
+  .hero-actions {
+    margin: 1.5rem 0 1.05rem;
+  }
+
+  .signal-grid {
+    gap: 0.65rem;
+    padding: 0.95rem 0;
   }
 
   .signal-grid,
   .buyer-grid,
   .proof-grid,
-  .process-grid,
-  .logo-wall {
+  .process-grid {
     grid-template-columns: 1fr;
+  }
+
+  .logo-wall {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .logo-wall img {
+    max-height: 72px;
+    padding: 0.7rem;
+    border-radius: 16px;
   }
 
   .hero-actions,
@@ -844,12 +927,46 @@ h3 {
     border-radius: 18px;
   }
 
+  .priority-board,
+  .buyer-card,
+  .proof-card,
+  .approach-panel,
+  .quote-form,
+  .process-grid li {
+    padding: 1.15rem;
+  }
+
   .partner-badge-row {
     align-items: flex-start;
   }
 
   .partner-badge-row img {
     width: 60px;
+  }
+
+  .partner-showcase {
+    padding: 1.1rem;
+  }
+
+  .partner-showcase-logo {
+    width: 56px;
+  }
+
+  .partner-points {
+    gap: 0.55rem;
+  }
+
+  .partner-points span {
+    font-size: 0.84rem;
+  }
+
+  .service-row {
+    padding: 1.1rem;
+  }
+
+  .service-tag {
+    width: 100%;
+    justify-self: stretch;
   }
 
   .footer-links {
